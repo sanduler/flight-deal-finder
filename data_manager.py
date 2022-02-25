@@ -27,7 +27,7 @@ class DataManager:
                     "iataCode": city["iataCode"],
                 }
             }
-            print(new_data)
+            # print(new_data)
             sheety_put_response = requests.put(url=f"{SHEETY_ENDPOINT}/{city['id']}", json=new_data)
             sheety_put_response.raise_for_status()
-            print(sheety_put_response.text)
+            # print(sheety_put_response.text)
