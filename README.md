@@ -37,8 +37,8 @@ This is an example of how to list things you need to use the software and how to
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/sanduler/workout-tracker
+   ```sh3
+   git clone https://github.com/sanduler/flight-deal-tracker
    ```
 2. Install NPM packages
    ```sh
