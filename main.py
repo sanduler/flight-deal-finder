@@ -5,7 +5,7 @@
 import json
 import os
 from twilio.rest import Client
-
+from data_manager import DataManager
 import requests
 
 # account_sid = os.environ["TWILIO_ACCOUNT_SID"]
@@ -28,9 +28,13 @@ import requests
 #
 # # print the status once the text is sent.
 # print(message.status)
-sheety_endpoint = "https://api.sheety.co/4e12ce3dfb8293152e16533fafb5bf29/flightDeals/prices/2"
-sheety_get_response = requests.get(url=sheety_endpoint)
-sheety_get_response.raise_for_status()
-data = sheety_get_response.json()
-print(data)
-# sheety_response = requests.put(url=sheety_endpoint)
+# sheety_endpoint = "https://api.sheety.co/4e12ce3dfb8293152e16533fafb5bf29/flightDeals/prices/2"
+# sheety_get_response = requests.get(url=sheety_endpoint)
+# sheety_get_response.raise_for_status()
+# data = sheety_get_response.json()
+# print(data)
+# # sheety_response = requests.put(url=sheety_endpoint)
+
+data_manager = DataManager()
+sheet_data = data_manager.get_destination_data()
+print(sheet_data)
