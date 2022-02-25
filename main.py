@@ -8,6 +8,7 @@ from flight_search import FlightSearch
 from datetime import datetime, timedelta
 
 ORIGIN_CITY ="PDX"
+START_DAY_FROM_TODAY = 20
 
 data_managing = DataManager()
 sheet_data = data_managing.get_destination_data()
@@ -23,10 +24,15 @@ if sheet_data[0]["iataCode"] == "":
 
 
 # start the search from next day --> tomorrow
-tomorrow = datetime.now() + timedelta(days=1)
+tomorrow = datetime.now() + timedelta(days=START_DAY_FROM_TODAY)
 # look into the future six months --> 6 months = 30 * 6 months
 six_months = datetime.now() + timedelta(days=(6*30))
 
 # look into each of the destination codes to search for the flight
 for destination in sheet_data:
-    pass
+    flight = flight_searching.check_flight(
+        ORIGIN_CITY,
+        destination["iataCode"],
+        from_time=tomorrow,
+        to_time=six_months
+    )
