@@ -17,5 +17,17 @@ class DataManager:
         sheety_get_response = requests.get(url=SHEETY_ENDPOINT)
         sheety_get_response.raise_for_status()
         data = sheety_get_response.json()
-        self.destination_data = data
+        self.destination_data = data["prices"]
         return self.destination_data
+
+    def update_destination_codes(self):
+        for city in self.destination_data:
+            new_data = {
+                "price": {
+                    "iataCode": city["iataCode"],
+                }
+            }
+            print(new_data)
+            sheety_put_response = requests.put(url=f"{SHEETY_ENDPOINT}/{city['id']}", json=new_data)
+            sheety_put_response.raise_for_status()
+            print(sheety_put_response.text)
