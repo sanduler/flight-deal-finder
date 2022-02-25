@@ -10,7 +10,7 @@ TEQUILA_API = os.environ["TEQUILA_API_KEY"]
 MIN_LENGTH_OF_STAY = 7
 MAX_LENGTH_OF_STAY = 10
 ADULTS = 2
-MAX_STOPOVERS = 3
+MAX_STOPOVERS = 1
 class FlightSearch:
     # def __init__(self):
     #     self.get_destination_code()
@@ -70,4 +70,5 @@ class FlightSearch:
         flight_data.return_date = data["route"][1]["local_departure"].split("T")[0]
 
         print(f"{flight_data.destination_city}: ${flight_data.price}")
+
         return flight_data
