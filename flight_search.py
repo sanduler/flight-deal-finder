@@ -5,12 +5,15 @@
 import os
 import requests
 from flight_data import FlightData
+
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com"
 TEQUILA_API = os.environ["TEQUILA_API_KEY"]
-MIN_LENGTH_OF_STAY = 7
-MAX_LENGTH_OF_STAY = 10
+MIN_LENGTH_OF_STAY = 1
+MAX_LENGTH_OF_STAY = 20
 ADULTS = 2
-MAX_STOPOVERS = 1
+MAX_STOPOVERS = 4
+
+
 class FlightSearch:
     # def __init__(self):
     #     self.get_destination_code()
